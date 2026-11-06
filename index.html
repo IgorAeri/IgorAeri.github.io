@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Игорь — моушн-дизайнер и видеомонтажёр</title>
+<meta name="description" content="Портфолио Игоря: моушн-графика и видеомонтаж. Ролики, заставки, анимированные вставки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF0F6; --ink:#14151C; --mute:#555a70; --line:#cdd1e0;
+  --blue:#3B3BF5; --blue-dark:#2a2ad0; --tile:#dfe2ee;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+
+/* header */
+header{padding:22px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font:700 18px var(--display);text-decoration:none}
+nav{display:flex;gap:26px}
+nav a{text-decoration:none;font-weight:500;color:var(--mute)}
+nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:clamp(40px,8vw,96px) 0 clamp(40px,6vw,72px)}
+h1{font:700 clamp(34px,6.4vw,76px)/1.04 var(--display);letter-spacing:-.02em;max-width:15ch}
+.lead{margin-top:28px;max-width:46ch;font-size:clamp(18px,2vw,21px);color:var(--mute)}
+.actions{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;padding:15px 26px;border-radius:999px;font-weight:500;text-decoration:none;transition:background .2s,color .2s}
+.btn.solid{background:var(--blue);color:#fff}
+.btn.solid:hover{background:var(--blue-dark)}
+.btn.ghost{border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* the one animated moment: an easing curve drawing itself */
+.curve{margin-top:clamp(36px,6vw,64px);width:100%;height:auto;display:block;overflow:visible}
+.curve .grid{stroke:var(--line);stroke-width:1}
+.curve .path{fill:none;stroke:var(--blue);stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s cubic-bezier(.65,0,.35,1) .2s forwards}
+.curve .key{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}
+.curve .dot{fill:var(--ink)}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* sections */
+section{padding:clamp(48px,7vw,88px) 0}
+h2{font:700 clamp(26px,3.6vw,40px)/1.15 var(--display);letter-spacing:-.01em;margin-bottom:36px}
+
+/* works */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
+.work{display:block;text-decoration:none}
+.work:first-child{grid-column:span 2}
+.thumb{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--tile)}
+.work:first-child .thumb{aspect-ratio:auto;height:100%;min-height:0}
+.thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.thumb video{z-index:1}
+.play{position:absolute;z-index:2;left:50%;top:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:transform .25s}
+.play::after{content:"";margin-left:4px;border-left:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.work:hover .play,.work:focus-visible .play{transform:scale(1.12)}
+.work .title{margin-top:12px;font-weight:500}
+.work .meta{color:var(--mute);font-size:15px}
+.work:first-child{display:grid;grid-template-rows:1fr auto}
+
+/* about */
+.about{background:#fff}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{max-width:52ch;color:var(--mute)}
+.services{list-style:none;border-top:1.5px solid var(--ink)}
+.services li{padding:20px 0;border-bottom:1px solid var(--line)}
+.services strong{display:block;font:500 19px var(--body)}
+.services span{color:var(--mute);font-size:16px}
+
+/* contacts: the single bold color block */
+.contact{background:var(--blue);color:#fff}
+.contact h2{max-width:18ch;margin-bottom:20px}
+.contact p{max-width:46ch;opacity:.9}
+.links{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
+.contact .btn.solid{background:#fff;color:var(--blue)}
+.contact .btn.solid:hover{background:var(--paper)}
+.contact .btn.ghost{border-color:#fff}
+.contact .btn.ghost:hover{background:#fff;color:var(--blue)}
+.contact :focus-visible{outline-color:#fff}
+footer{padding:28px 0;color:var(--mute);font-size:15px}
+
+@media (max-width:820px){
+  .grid{grid-template-columns:1fr 1fr}
+  .work:first-child{grid-column:span 2}
+  .work:first-child .thumb{aspect-ratio:16/9}
+  .cols{grid-template-columns:1fr;gap:32px}
+}
+@media (max-width:540px){
+  nav{gap:16px}
+  .grid{grid-template-columns:1fr}
+  .work:first-child{grid-column:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .curve .path{animation:none;stroke-dashoffset:0}
+  .play{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Игорь</a>
+    <nav aria-label="Разделы">
+      <a href="#works">Работы</a>
+      <a href="#about">Услуги</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <h1>Моушн-дизайн и монтаж видео</h1>
+    <p class="lead">Делаю анимированную графику и монтирую ролики: заставки, вставки, рилсы, рекламу. Опыт больше трёх лет.</p>
+    <div class="actions">
+      <a class="btn solid" href="#works">Смотреть работы</a>
+      <a class="btn ghost" id="tg-hero" href="#contact">Написать мне</a>
+    </div>
+
+    <svg class="curve" viewBox="0 0 1000 200" role="img" aria-label="Кривая плавности анимации с двумя ключевыми кадрами">
+      <line class="grid" x1="20" y1="30" x2="980" y2="30"/>
+      <line class="grid" x1="20" y1="170" x2="980" y2="170"/>
+      <path id="ease" class="path" pathLength="1" d="M20 170 C 400 170, 600 30, 980 30"/>
+      <rect class="key" x="10" y="160" width="20" height="20" transform="rotate(45 20 170)"/>
+      <rect class="key" x="970" y="20" width="20" height="20" transform="rotate(45 980 30)"/>
+      <circle class="dot" r="9" cx="20" cy="170">
+        <animateMotion id="motion" dur="3s" begin="2s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keyPoints="0;1" keySplines="0.65 0 0.35 1">
+          <mpath href="#ease"/>
+        </animateMotion>
+      </circle>
+    </svg>
+  </div>
+
+  <section id="works">
+    <div class="wrap">
+      <h2>Работы</h2>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap cols">
+      <div>
+        <h2>Чем могу помочь</h2>
+        <p>Работаю и в моушн-графике, и в монтаже, поэтому могу взять проект целиком: от раскадровки и анимации до финальной сборки и звука. Пишите задачу и сроки, отвечу с оценкой стоимости.</p>
+      </div>
+      <ul class="services">
+        <li><strong>Моушн-графика</strong><span>Заставки, анимация логотипа, инфографика, анимированные вставки.</span></li>
+        <li><strong>Видеомонтаж</strong><span>Ролики, рилсы и шортсы, интервью, подкасты, цвет и звук.</span></li>
+        <li><strong>Видео под ключ</strong><span>Монтаж и графика в одном проекте, единый стиль.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Расскажите о задаче</h2>
+      <p>Напишите, что нужно сделать и к какому сроку. Отвечу в течение дня.</p>
+      <div class="links">
+        <a class="btn solid" id="tg" href="#">Telegram</a>
+        <a class="btn ghost" id="mail" href="#">Почта</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Игорь</div>
+</footer>
+
+<script>
+/* ===== ЗДЕСЬ МЕНЯЕТЕ СВОИ ДАННЫЕ ===== */
+const CONFIG = {
+  telegram: "https://t.me/ваш_ник",   // ссылка на ваш Telegram
+  email: "you@example.com"             // ваша почта
+};
+
+/* Список работ. Первая работа показывается крупно.
+   title   - название проекта
+   kind    - тип работы
+   year    - год
+   link    - ссылка на полное видео (YouTube, VK Видео, Rutube, Vimeo)
+   preview - короткое превью-видео, например "media/project1.webm" (3-5 сек, до 3 МБ).
+             Если оставить пустым, будет цветная заглушка. */
+const PROJECTS = [
+  { title: "Название проекта 1", kind: "Моушн-графика", year: 2026, link: "#", preview: "" },
+  { title: "Название проекта 2", kind: "Видеомонтаж",   year: 2026, link: "#", preview: "" },
+  { title: "Название проекта 3", kind: "Моушн-графика", year: 2025, link: "#", preview: "" },
+  { title: "Название проекта 4", kind: "Видеомонтаж",   year: 2025, link: "#", preview: "" },
+  { title: "Название проекта 5", kind: "Моушн-графика", year: 2025, link: "#", preview: "" }
+];
+/* ===================================== */
+
+const tints = [["#3B3BF5","#8a8cff"],["#14151C","#4b4f6b"],["#6a6cf7","#c9caff"],["#2a2ad0","#14151C"],["#9a9cff","#e2e3ff"]];
+const grid = document.getElementById("grid");
+
+PROJECTS.forEach((p, i) => {
+  const a = document.createElement("a");
+  a.className = "work";
+  a.href = p.link;
+  if (p.link && p.link !== "#") { a.target = "_blank"; a.rel = "noopener"; }
+  const t = tints[i % tints.length];
+  const video = p.preview
+    ? `<video muted loop playsinline preload="metadata" src="${p.preview}"></video>`
+    : "";
+  a.innerHTML = `
+    <div class="thumb" style="--c1:${t[0]};--c2:${t[1]}">${video}<span class="play"></span></div>
+    <div><div class="title"></div><div class="meta"></div></div>`;
+  a.querySelector(".title").textContent = p.title;
+  a.querySelector(".meta").textContent = p.kind + ", " + p.year;
+  const v = a.querySelector("video");
+  if (v) {
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduce) {
+      a.addEventListener("mouseenter", () => v.play().catch(() => {}));
+      a.addEventListener("focus", () => v.play().catch(() => {}));
+      const stop = () => { v.pause(); v.currentTime = 0; };
+      a.addEventListener("mouseleave", stop);
+      a.addEventListener("blur", stop);
+    }
+  }
+  grid.appendChild(a);
+});
+
+document.getElementById("tg").href = CONFIG.telegram;
+document.getElementById("mail").href = "mailto:" + CONFIG.email;
+document.getElementById("year").textContent = new Date().getFullYear();
+
+if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const m = document.getElementById("motion");
+  if (m) m.remove();
+}
+</script>
+</body>
+</html>
